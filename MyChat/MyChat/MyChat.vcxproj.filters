@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>qml;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>qrc;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts</Extensions>
+    </Filter>
+    <Filter Include="Header Files\LoginAndRegister">
+      <UniqueIdentifier>{34542f14-dc46-434f-abcd-e4514f3170af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LoginAndRegister">
+      <UniqueIdentifier>{cf273206-b297-4b3d-97a0-37d6627dfba1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\manager">
+      <UniqueIdentifier>{1a2bcddd-69d4-4b69-8750-175060d44c5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\CustomDialog">
+      <UniqueIdentifier>{8cb37581-2ed1-4b98-bf2f-7cd6550568d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CustomDialog">
+      <UniqueIdentifier>{c3023ebc-5f96-43d4-b0a4-564032377b93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FramelessWindow">
+      <UniqueIdentifier>{4fc82b11-1c13-4079-926b-593f924d63d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FramelessWindow">
+      <UniqueIdentifier>{153fb176-ea6b-4063-8a91-5b7ad49a698a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="res.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtMoc Include="Widget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClCompile Include="Widget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginPanel.cpp">
+      <Filter>Source Files\LoginAndRegister</Filter>
+    </ClCompile>
+    <ClCompile Include="LRDialog.cpp">
+      <Filter>Source Files\LoginAndRegister</Filter>
+    </ClCompile>
+    <ClCompile Include="RegisterPanel.cpp">
+      <Filter>Source Files\LoginAndRegister</Filter>
+    </ClCompile>
+    <ClCompile Include="MyDialog.cpp">
+      <Filter>Source Files\CustomDialog</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomDialog.cpp">
+      <Filter>Source Files\CustomDialog</Filter>
+    </ClCompile>
+    <ClCompile Include="FramelessWindow.cpp">
+      <Filter>Source Files\FramelessWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="TestFramelessWindow.cpp">
+      <Filter>Source Files\FramelessWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleBar.cpp">
+      <Filter>Source Files\FramelessWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="ForgetPasswordPanel.cpp">
+      <Filter>Source Files\LoginAndRegister</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="manager.h">
+      <Filter>Header Files\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="resources_manager.h">
+      <Filter>Header Files\manager</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MyChat.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="MyChat.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="LoginPanel.h">
+      <Filter>Header Files\LoginAndRegister</Filter>
+    </QtMoc>
+    <QtMoc Include="LRDialog.h">
+      <Filter>Header Files\LoginAndRegister</Filter>
+    </QtMoc>
+    <QtMoc Include="RegisterPanel.h">
+      <Filter>Header Files\LoginAndRegister</Filter>
+    </QtMoc>
+    <QtMoc Include="MyDialog.h">
+      <Filter>Header Files\CustomDialog</Filter>
+    </QtMoc>
+    <QtMoc Include="CustomDialog.h">
+      <Filter>Header Files\CustomDialog</Filter>
+    </QtMoc>
+    <QtMoc Include="TestFramelessWindow.h">
+      <Filter>Header Files\FramelessWindow</Filter>
+    </QtMoc>
+    <QtMoc Include="FramelessWindow.h">
+      <Filter>Header Files\FramelessWindow</Filter>
+    </QtMoc>
+    <QtMoc Include="TitleBar.h">
+      <Filter>Header Files\FramelessWindow</Filter>
+    </QtMoc>
+    <QtMoc Include="ForgetPasswordPanel.h">
+      <Filter>Header Files\LoginAndRegister</Filter>
+    </QtMoc>
+  </ItemGroup>
+</Project>

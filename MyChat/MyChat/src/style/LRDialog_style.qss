@@ -1,0 +1,96 @@
+/* LRDialog */
+
+#LRDialog {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #e3eeff, stop:1 #e3eeff);
+}
+
+#closeBtn {
+    border: none;
+    background: transparent;
+    color: black;
+}
+
+#closeBtn:hover {
+    background-color: #c42b1c;
+    color: white;
+}
+
+#closeBtn:pressed {
+    background-color: #e81123;
+    color: white;
+}
+
+#minBtn {
+    background-color: transparent;
+    color: black;
+    border: none;
+}
+
+#minBtn:hover {
+    color: #009efd;
+}
+
+/* LoginPanel */
+
+#logo {
+    background-color: white;
+    border-radius: 55px;
+}
+
+/* RegisterPanel & ForgetPasswordPanel */
+
+#getBtn {
+    background-color: white;
+    border: 1px solid #d3d6db;
+    border-radius: 3px;
+    color: black;
+}
+
+#getBtn:hover {
+    border: 1px solid #0099ff;
+    color: #0099ff;
+}
+
+/* common */
+
+QLineEdit {
+    border: none;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+#loginBtn,
+#registerBtn,
+#confirmBtn {
+    background-color: #009efd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#loginBtn:hover,
+#registerBtn:hover,
+#confirmBtn:hover {
+    background-color: #008deb;
+}
+
+#loginBtn:pressed,
+#registerBtn:pressed,
+#confirmBtn:pressed {
+    background-color: #0081d6;
+}
+
+#loginBtn:disabled,
+#registerBtn:disabled,
+#confirmBtn:disabled {
+    background-color: #a1daff;
+}
+
+QWidget#tail>QPushButton {
+    border: none;
+    color: #4386e8;
+}
+
+QWidget#tail>QFrame {
+    color: #c8dfeb;
+}

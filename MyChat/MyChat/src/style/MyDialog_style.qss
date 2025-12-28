@@ -1,0 +1,42 @@
+#mainDialog {
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+#btnClose {
+    border: none;
+    color: black;
+}
+
+#btnForgetPassword {
+    background-color: #0099ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#btnForgetPassword:hover {
+    background-color: #008deb;
+}
+
+#btnForgetPassword:pressed {
+    background-color: #0081D6;
+}
+
+#btnReLogin {
+    background-color: white;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    color: black;
+}
+
+#btnReLogin:hover {
+    background-color: #F5F5F5;
+    border-color: #C4C4C4;
+}
+
+#btnReLogin:pressed {
+    background-color: #e0e0e0;
+    border-color: #b3b3b3;
+}
