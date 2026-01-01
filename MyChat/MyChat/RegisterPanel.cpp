@@ -1,10 +1,10 @@
 #include <QStyleOption>
-#include <QPainter>
 #include <QPushButton>
 #include <QLineEdit>
 #include <QLabel>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QRegularExpression>
 #include "RegisterPanel.h"
 
 RegisterPanel::RegisterPanel(QWidget* parent) : QWidget(parent)
@@ -63,13 +63,26 @@ void RegisterPanel::initBody()
 	verificationEdit->setPlaceholderText(u8"验证码");
 	verificationEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{6}")));
 	QPushButton* getBtn = new QPushButton;
+	getBtn->setObjectName("getBtn");
 	getBtn->setFixedSize(60, 35);
 	font.setPixelSize(16);
 	getBtn->setFont(font);
 	getBtn->setText(u8"获取");
 	getBtn->setCheckable(true);
-	getBtn->setCursor(Qt::ArrowCursor);
-	getBtn->setObjectName("getBtn");
+	getBtn->setCursor(Qt::PointingHandCursor);
+	connect(getBtn, &QPushButton::clicked, this, [=](){
+		QString email = emailEdit->text();
+		QRegularExpression regex(R"((\w+)(\.|_)?(\w*)@(\w+)(\.(\w+))+)");
+		bool match = regex.match(email).hasMatch();
+		if (match)
+		{
+			// 发送验证码
+		}
+		else
+		{
+			// 提示邮箱地址不正确
+		}
+	});
 	QHBoxLayout* layout = new QHBoxLayout(verificationEdit);
 	layout->setContentsMargins(0, 0, 5, 0);
 	layout->addStretch();

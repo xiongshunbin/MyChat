@@ -1,5 +1,4 @@
 #include <QStyleOption>
-#include <QPainter>
 #include <QPushButton>
 #include <QLineEdit>
 #include <QLabel>

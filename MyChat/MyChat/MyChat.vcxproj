@@ -89,9 +89,11 @@
     <ClCompile Include="CustomDialog.cpp" />
     <ClCompile Include="ForgetPasswordPanel.cpp" />
     <ClCompile Include="FramelessWindow.cpp" />
-    <ClCompile Include="LRDialog.cpp" />
+    <ClCompile Include="Global.cpp" />
+    <ClCompile Include="LRFDialog.cpp" />
     <ClCompile Include="LoginPanel.cpp" />
     <ClCompile Include="MyDialog.cpp" />
+    <ClCompile Include="MyLineEdit.cpp" />
     <ClCompile Include="RegisterPanel.cpp" />
     <ClCompile Include="TestFramelessWindow.cpp" />
     <ClCompile Include="TitleBar.cpp" />
@@ -105,10 +107,12 @@
     <QtMoc Include="CustomDialog.h" />
     <QtMoc Include="FramelessWindow.h" />
     <QtMoc Include="ForgetPasswordPanel.h" />
+    <ClInclude Include="Global.h" />
+    <ClInclude Include="MyLineEdit.h" />
     <ClInclude Include="resources_manager.h" />
     <QtMoc Include="LoginPanel.h" />
     <QtMoc Include="RegisterPanel.h" />
-    <QtMoc Include="LRDialog.h" />
+    <QtMoc Include="LRFDialog.h" />
     <ClInclude Include="manager.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>

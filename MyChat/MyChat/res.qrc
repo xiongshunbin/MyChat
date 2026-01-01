@@ -4,9 +4,10 @@
         <file>src/fonts/iconfont.ttf</file>
         <file>src/images/chat.svg</file>
         <file>src/fonts/PingFang.ttf</file>
-        <file>src/style/LRDialog_style.qss</file>
         <file>src/style/MyDialog_style.qss</file>
         <file>src/fonts/TitleBar_iconfont.ttf</file>
         <file>src/style/TitleBar_style.qss</file>
+        <file>src/style/LRFDialog_style.qss</file>
+        <file>src/fonts/MyLineEdit_iconfont.ttf</file>
     </qresource>
 </RCC>

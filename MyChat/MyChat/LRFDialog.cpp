@@ -1,14 +1,14 @@
 #include <QIcon>
 #include <QVBoxLayout>
 #include <QtWinExtras/QtWin>
-#include "LRDialog.h"
+#include "LRFDialog.h"
 
 #ifdef Q_OS_WIN
 #include <Dwmapi.h>  // Use system shadow frame
 #pragma comment(lib, "dwmapi.lib")
 #endif
 
-LRDialog::LRDialog(QWidget* parent) : QWidget(parent)
+LRFDialog::LRFDialog(QWidget* parent) : QWidget(parent)
 {
 	// 设置固定大小
 	this->setFixedSize(400, 560);
@@ -76,12 +76,12 @@ LRDialog::LRDialog(QWidget* parent) : QWidget(parent)
 	stackWidget->setCurrentIndex(0);
 }
 
-LRDialog::~LRDialog()
+LRFDialog::~LRFDialog()
 {
 
 }
 
-QWidget* LRDialog::initTopBar()
+QWidget* LRFDialog::initTopBar()
 {
 	QWidget* topBar = new QWidget(this);
 	topBar->setFixedSize(width(), 36);
@@ -120,7 +120,7 @@ QWidget* LRDialog::initTopBar()
 	return topBar;
 }
 
-void LRDialog::mousePressEvent(QMouseEvent* event)
+void LRFDialog::mousePressEvent(QMouseEvent* event)
 {
 	if (event->button() == Qt::LeftButton)
 	{
@@ -130,19 +130,19 @@ void LRDialog::mousePressEvent(QMouseEvent* event)
 	}
 }
 
-void LRDialog::mouseMoveEvent(QMouseEvent* event)
+void LRFDialog::mouseMoveEvent(QMouseEvent* event)
 {
 	if (leftPressed)
 		this->move(event->globalPos() + windowPos - pressPos);
 }
 
-void LRDialog::mouseReleaseEvent(QMouseEvent* event)
+void LRFDialog::mouseReleaseEvent(QMouseEvent* event)
 {
 	leftPressed = false;
 }
 
 // 通过拦截消息重新去掉标题栏
-bool LRDialog::nativeEvent(const QByteArray& eventType, void* message, long* result)
+bool LRFDialog::nativeEvent(const QByteArray& eventType, void* message, long* result)
 {
 	if (eventType != "windows_generic_MSG")
 		return false;

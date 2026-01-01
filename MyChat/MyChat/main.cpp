@@ -1,14 +1,14 @@
 #include "Widget.h"
 #include <QtWidgets/QApplication>
-#include "LRDialog.h"
+#include "LRFDialog.h"
 
 #include "TestFramelessWindow.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-	LRDialog dialog;
-	dialog.setStyleSheet(ResourcesManager::instance()->getStylePool().find(ResID::Style_LRDialog)->second);
+	LRFDialog dialog;
+	dialog.setStyleSheet(ResourcesManager::instance()->getStylePool().find(ResID::Style_LRFDialog)->second);
 	dialog.show();
     //TestFramelessWindow test;
     //test.show();

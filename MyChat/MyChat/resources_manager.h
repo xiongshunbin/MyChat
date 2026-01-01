@@ -12,7 +12,8 @@ enum class ResID
 {
 	Font_TitleBar_iconfont,
 	Font_PingFang,
-	Style_LRDialog,
+	Font_MyLineEdit_iconfont,
+	Style_LRFDialog,
 	Style_TitleBar,
 	Style_MyDialog
 };
@@ -74,8 +75,9 @@ protected:
 	{
 		fontPool[ResID::Font_TitleBar_iconfont] = loadFont("TitleBar_iconfont", ":/src/fonts/TitleBar_iconfont.ttf");
 		fontPool[ResID::Font_PingFang] = loadFont("PingFang", ":/src/fonts/PingFang.ttf");
+		fontPool[ResID::Font_MyLineEdit_iconfont] = loadFont("MyLineEdit_iconfont", ":/src/fonts/MyLineEdit_iconfont.ttf");
 
-		stylePool[ResID::Style_LRDialog] = loadStyle(":/src/style/LRDialog_style.qss");
+		stylePool[ResID::Style_LRFDialog] = loadStyle(":/src/style/LRFDialog_style.qss");
 		stylePool[ResID::Style_MyDialog] = loadStyle(":/src/style/MyDialog_style.qss");
 		stylePool[ResID::Style_TitleBar] = loadStyle(":/src/style/TitleBar_style.qss");
 	}

@@ -8,12 +8,12 @@
 #include "RegisterPanel.h"
 #include "ForgetPasswordPanel.h"
 
-class LRDialog : public QWidget
+class LRFDialog : public QWidget
 {
 	Q_OBJECT
 public:
-	explicit LRDialog(QWidget* parent = nullptr);
-	~LRDialog();
+	explicit LRFDialog(QWidget* parent = nullptr);
+	~LRFDialog();
 
 	QWidget* initTopBar();
 
