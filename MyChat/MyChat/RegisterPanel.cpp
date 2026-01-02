@@ -6,6 +6,8 @@
 #include <QVBoxLayout>
 #include <QRegularExpression>
 #include "RegisterPanel.h"
+#include "ResourceManager.h"
+#include "HttpManager.h"
 
 RegisterPanel::RegisterPanel(QWidget* parent) : QWidget(parent)
 {
@@ -17,10 +19,41 @@ RegisterPanel::RegisterPanel(QWidget* parent) : QWidget(parent)
 	initTitle();
 	initBody();
 	initTail();
+
+	connect(HttpManager::getInstance().get(), &HttpManager::signalRegModFinish, this, &RegisterPanel::slotRegModFinish);
+
+	initHttpHandlers();
 }
 
 RegisterPanel::~RegisterPanel()
 {
+}
+
+void RegisterPanel::slotRegModFinish(RequestID requestId, QString result, ErrorCodes error)
+{
+	if (error !=ErrorCodes::SUCCESS)
+	{
+		qDebug() << "网络请求错误!";
+		return;
+	}
+
+	// 解析Json字符串, result转换为QByteArray
+	QJsonDocument jsonDoc = QJsonDocument::fromJson(result.toUtf8());
+	if (jsonDoc.isNull())
+	{
+		qDebug() << "Json解析失败!";
+		return;
+	}
+
+	// Json解析错误
+	if (!jsonDoc.isObject())
+	{
+		qDebug() << "Json解析失败!";
+		return;
+	}
+
+	m_handlers[requestId](jsonDoc.object());
+	return;
 }
 
 void RegisterPanel::initTitle()
@@ -130,4 +163,21 @@ void RegisterPanel::initTail()
 	});
 	tailLayout->addWidget(loginBtn);
 	tail->move((width() - tail->width()) / 2, (height() - tail->height()) * 15 / 16);
+}
+
+void RegisterPanel::initHttpHandlers()
+{
+	// 注册获取验证码回包的逻辑
+	m_handlers.insert(RequestID::ID_GET_VARIFY_CODE, [this](const QJsonObject& jsonObj) {
+		int error = jsonObj["error"].toInt();
+		if (error != ErrorCodes::SUCCESS)
+		{
+			qDebug() << "参数错误!";
+			return;
+		}
+
+		auto email = jsonObj["email"].toString();
+		qDebug() << "验证码已经发送到邮箱，注意查收!";
+		qDebug() << "email is:" << email;
+	});
 }

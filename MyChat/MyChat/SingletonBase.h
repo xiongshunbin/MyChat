@@ -1,7 +1,6 @@
 #pragma once
 
-#include <memory>
-#include <mutex>
+#include "Global.h"
 
 // 可继承单例模板类
 template<typename T>

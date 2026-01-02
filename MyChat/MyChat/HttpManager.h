@@ -8,23 +8,6 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
-enum RequestID
-{
-	ID_GET_VARIFY_CODE = 1001,	// 获取验证码
-	ID_REGISTER_USER = 1002,
-};
-
-enum Modules
-{
-	REGISTERMOD = 0
-};
-
-enum ErrorCodes {
-	SUCCESS = 0,
-	ERROR_JSON = 1,		// Json解析失败
-	ERROR_NETWORK = 2,	// 网络错误
-};
-
 // CRTP(奇异递归模板)
 
 class HttpManager : public QObject, public SingletonBase<HttpManager>, 
