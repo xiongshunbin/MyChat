@@ -1,5 +1,5 @@
 #include "TitleBar.h"
-#include "resources_manager.h"
+#include "ResourceManager.h"
 
 TitleBar::TitleBar(QWidget* parent) : QWidget(parent)
 {
@@ -22,7 +22,7 @@ TitleBar::TitleBar(QWidget* parent) : QWidget(parent)
 	m_pMaximizeButton->setFixedSize(40, 35);
 	m_pCloseButton->setFixedSize(40, 35);
 
-	QFont iconFont = ResourcesManager::instance()->getFontPool().find(ResID::Font_TitleBar_iconfont)->second;
+	QFont iconFont = ResourceManager::getInstance()->getFontPool().find(ResID::Font_TitleBar_iconfont)->second;
 	iconFont.setPixelSize(14);
 
 	m_pMinimizeButton->setFont(iconFont);
@@ -43,7 +43,7 @@ TitleBar::TitleBar(QWidget* parent) : QWidget(parent)
 	pLayout->addWidget(m_pMaximizeButton);
 	pLayout->addWidget(m_pCloseButton);
 
-	this->setStyleSheet(ResourcesManager::instance()->getStylePool().find(ResID::Style_TitleBar)->second);
+	this->setStyleSheet(ResourceManager::getInstance()->getStylePool().find(ResID::Style_TitleBar)->second);
 }
 
 TitleBar::~TitleBar()

@@ -34,7 +34,7 @@ MyDialog::MyDialog(QWidget* parent) : CustomDialog(parent)
 	btnClose->setObjectName("btnClose");
 	btnClose->installEventFilter(this);
 	btnClose->setFixedSize(30, 30);
-	QFont iconFont = ResourcesManager::instance()->getFontPool().find(ResID::Font_TitleBar_iconfont)->second;
+	QFont iconFont = ResourceManager::getInstance()->getFontPool().find(ResID::Font_TitleBar_iconfont)->second;
 	iconFont.setPixelSize(16);
 	btnClose->setFont(iconFont);
 	btnClose->setText(QChar(0xe652));
@@ -42,7 +42,7 @@ MyDialog::MyDialog(QWidget* parent) : CustomDialog(parent)
 	topHLayout->addStretch();
 	topHLayout->addWidget(btnClose);
 	CVLayout->addWidget(top);
-	QFont font = ResourcesManager::instance()->getFontPool().find(ResID::Font_PingFang)->second;
+	QFont font = ResourceManager::getInstance()->getFontPool().find(ResID::Font_PingFang)->second;
 	font.setPixelSize(18);
 	lblMessage = new QLabel(mainDialog);
 	lblMessage->setObjectName("lblMessage");
@@ -71,7 +71,7 @@ MyDialog::MyDialog(QWidget* parent) : CustomDialog(parent)
 	tailHLayout->addWidget(btnReLogin);
 	CVLayout->addWidget(tail);
 
-	this->setStyleSheet(ResourcesManager::instance()->getStylePool().find(ResID::Style_MyDialog)->second);
+	this->setStyleSheet(ResourceManager::getInstance()->getStylePool().find(ResID::Style_MyDialog)->second);
 
 	connect(btnForgetPassword, &QPushButton::clicked, this, &CustomDialog::closeDialog);
 	connect(btnReLogin, &QPushButton::clicked, this, &CustomDialog::closeDialog);

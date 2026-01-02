@@ -33,7 +33,7 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="QtSettings">
     <QtInstall>5.15.2_msvc2019</QtInstall>
-    <QtModules>core;gui;widgets</QtModules>
+    <QtModules>core;network;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'" Label="QtSettings">
@@ -90,6 +90,7 @@
     <ClCompile Include="ForgetPasswordPanel.cpp" />
     <ClCompile Include="FramelessWindow.cpp" />
     <ClCompile Include="Global.cpp" />
+    <ClCompile Include="HttpManager.cpp" />
     <ClCompile Include="LRFDialog.cpp" />
     <ClCompile Include="LoginPanel.cpp" />
     <ClCompile Include="MyDialog.cpp" />
@@ -108,12 +109,13 @@
     <QtMoc Include="FramelessWindow.h" />
     <QtMoc Include="ForgetPasswordPanel.h" />
     <ClInclude Include="Global.h" />
+    <QtMoc Include="HttpManager.h" />
     <ClInclude Include="MyLineEdit.h" />
-    <ClInclude Include="resources_manager.h" />
+    <ClInclude Include="ResourceManager.h" />
     <QtMoc Include="LoginPanel.h" />
     <QtMoc Include="RegisterPanel.h" />
     <QtMoc Include="LRFDialog.h" />
-    <ClInclude Include="manager.h" />
+    <ClInclude Include="SingletonBase.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

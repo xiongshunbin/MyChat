@@ -94,7 +94,7 @@ QWidget* LRFDialog::initTopBar()
 	QPushButton* closeBtn = new QPushButton(topBar);
 	closeBtn->setFixedSize(40, 36);
 	closeBtn->setObjectName("closeBtn");
-	QFont iconFont = ResourcesManager::instance()->getFontPool().find(ResID::Font_TitleBar_iconfont)->second;
+	QFont iconFont = ResourceManager::getInstance()->getFontPool().find(ResID::Font_TitleBar_iconfont)->second;
 	iconFont.setPixelSize(14);
 	closeBtn->setFont(iconFont);
 	closeBtn->setText(QChar(0xe652));

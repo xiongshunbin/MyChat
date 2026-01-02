@@ -6,7 +6,7 @@
 #include <QBoxLayout>
 #include <QEvent>
 #include "CustomDialog.h"
-#include "resources_manager.h"
+#include "ResourceManager.h"
 
 class MyDialog : public CustomDialog
 {

@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 	LRFDialog dialog;
-	dialog.setStyleSheet(ResourcesManager::instance()->getStylePool().find(ResID::Style_LRFDialog)->second);
+	dialog.setStyleSheet(ResourceManager::getInstance()->getStylePool().find(ResID::Style_LRFDialog)->second);
 	dialog.show();
     //TestFramelessWindow test;
     //test.show();

@@ -2,7 +2,7 @@
 
 #include <QWidget>
 #include <QFontDatabase>
-#include "resources_manager.h"
+#include "ResourceManager.h"
 
 class ForgetPasswordPanel : public QWidget
 {

@@ -1,12 +1,10 @@
-#ifndef _RESOURCES_MANAGER_H_
-#define _RESOURCES_MANAGER_H_
+#pragma once
 
 #include <QFontDatabase>
-
 #include <unordered_map>
 #include <QFile>
 #include <QDebug>
-#include "manager.h"
+#include "SingletonBase.h"
 
 enum class ResID
 {
@@ -18,9 +16,9 @@ enum class ResID
 	Style_MyDialog
 };
 
-class ResourcesManager : public Manager<ResourcesManager>
+class ResourceManager : public SingletonBase<ResourceManager>
 {
-	friend class Manager<ResourcesManager>;
+	friend class SingletonBase<ResourceManager>;
 
 public:
 	typedef std::unordered_map<ResID, QFont> FontPool;
@@ -37,7 +35,7 @@ public:
 		return stylePool;
 	}
 
-protected:
+private:
 	QFont loadFont(QString fontName, QString filePath)
 	{
 		QFont font;
@@ -70,8 +68,7 @@ protected:
 		return style;
 	}
 
-protected:
-	ResourcesManager()
+	ResourceManager()
 	{
 		fontPool[ResID::Font_TitleBar_iconfont] = loadFont("TitleBar_iconfont", ":/src/fonts/TitleBar_iconfont.ttf");
 		fontPool[ResID::Font_PingFang] = loadFont("PingFang", ":/src/fonts/PingFang.ttf");
@@ -81,13 +78,12 @@ protected:
 		stylePool[ResID::Style_MyDialog] = loadStyle(":/src/style/MyDialog_style.qss");
 		stylePool[ResID::Style_TitleBar] = loadStyle(":/src/style/TitleBar_style.qss");
 	}
-	~ResourcesManager() = default;
 
+public:
+	~ResourceManager() = default;
 
 private:
 	QFontDatabase fontDb;
 	FontPool fontPool;
 	StylePool stylePool;
 };
-
-#endif // !_RESOURCES_MANAGER_H_

@@ -11,7 +11,7 @@ ForgetPasswordPanel::ForgetPasswordPanel(QWidget* parent) : QWidget(parent)
 	// 设置固定大小
 	this->setFixedSize(400, 524);
 
-	font = ResourcesManager::instance()->getFontPool().find(ResID::Font_PingFang)->second;
+	font = ResourceManager::getInstance()->getFontPool().find(ResID::Font_PingFang)->second;
 
 	initTitle();
 	initBody();

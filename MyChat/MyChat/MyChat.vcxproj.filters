@@ -91,15 +91,18 @@
     <ClCompile Include="MyLineEdit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HttpManager.cpp">
+      <Filter>Source Files\FramelessWindow</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="manager.h">
+    <ClInclude Include="SingletonBase.h">
       <Filter>Header Files\manager</Filter>
     </ClInclude>
-    <ClInclude Include="resources_manager.h">
+    <ClInclude Include="ResourceManager.h">
       <Filter>Header Files\manager</Filter>
     </ClInclude>
     <ClInclude Include="Global.h">
@@ -146,6 +149,9 @@
     </QtMoc>
     <QtMoc Include="ForgetPasswordPanel.h">
       <Filter>Header Files\LoginAndRegister</Filter>
+    </QtMoc>
+    <QtMoc Include="HttpManager.h">
+      <Filter>Header Files\manager</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>

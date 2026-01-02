@@ -12,7 +12,7 @@ LoginPanel::LoginPanel(QWidget* parent) : QWidget(parent)
 
 	this->setFocusPolicy(Qt::StrongFocus);
 
-	font = ResourcesManager::instance()->getFontPool().find(ResID::Font_PingFang)->second;
+	font = ResourceManager::getInstance()->getFontPool().find(ResID::Font_PingFang)->second;
 
 	initBody();
 	initTail();

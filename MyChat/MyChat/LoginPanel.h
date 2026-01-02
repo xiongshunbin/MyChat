@@ -5,7 +5,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QPushButton>
-#include "resources_manager.h"
+#include "ResourceManager.h"
 #include "MyDialog.h"
 
 class LoginPanel : public QWidget
