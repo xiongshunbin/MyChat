@@ -6,10 +6,10 @@
 
 FramelessWindow::FramelessWindow(QWidget* parent)
 {
-	// 设置为无边框窗口
+	// 璁剧疆涓烘棤杈规绐楀彛
 	this->setWindowFlags(windowFlags() | Qt::FramelessWindowHint);
 
-	// 设置窗口阴影效果
+	// 璁剧疆绐楀彛闃村奖鏁堟灉
 #ifdef Q_OS_WIN
 	BOOL bEnable = false;
 	::DwmIsCompositionEnabled(&bEnable);

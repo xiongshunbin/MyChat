@@ -2,7 +2,7 @@
 
 #include "Global.h"
 
-// 可继承单例模板类
+// 鍙户鎵垮崟渚嬫ā鏉跨被
 template<typename T>
 class SingletonBase
 {

@@ -60,12 +60,12 @@ MyDialog::MyDialog(QWidget* parent) : CustomDialog(parent)
 	btnForgetPassword->setObjectName("btnForgetPassword");
 	btnForgetPassword->setFixedSize(100, 40);
 	btnForgetPassword->setFont(font);
-	btnForgetPassword->setText(u8"Íü¼ÇÃÜÂë");
+	btnForgetPassword->setText(u8"å¿˜è®°å¯†ç ");
 	QPushButton* btnReLogin = new QPushButton(tail);
 	btnReLogin->setObjectName("btnReLogin");
 	btnReLogin->setFixedSize(100, 40);
 	btnReLogin->setFont(font);
-	btnReLogin->setText(u8"ÖØÐÂµÇÂ¼");
+	btnReLogin->setText(u8"é‡æ–°ç™»å½•");
 	tailHLayout->addStretch();
 	tailHLayout->addWidget(btnForgetPassword);
 	tailHLayout->addWidget(btnReLogin);

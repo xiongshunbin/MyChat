@@ -1,15 +1,20 @@
 #ifndef _TESTFRAMELESSWINDOW_H_
 #define _TESTFRAMELESSWINDOW_H_
 
-#include "FramelessWindow.h"
+#include "HWidget.h"
+#include "TitleBar.h"
 
-class TestFramelessWindow : public FramelessWindow
+class TestFramelessWindow : public HWidget
 {
 	Q_OBJECT
 
 public:
 	explicit TestFramelessWindow(QWidget* parent = nullptr);
 	~TestFramelessWindow();
+
+private slots:
+	void procTitleBarBtnEvent(TitleBarButtonEvent event);
+
 };
 
 

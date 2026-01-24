@@ -1,10 +1,10 @@
 #include "TitleBar.h"
 #include "ResourceManager.h"
 
-TitleBar::TitleBar(QWidget* parent) : QWidget(parent)
+TitleBar::TitleBar(QWidget* parent) : HTitleWidget(parent)
 {
 	this->setObjectName("TitleBar");
-	this->setFixedSize(parent->width(), m_titleBarHeight);
+	this->setFixedHeight(m_titleBarHeight);
 
 	m_pIconLabel = new QLabel(this);
 	m_pTitleLabel = new QLabel(this);
@@ -32,6 +32,16 @@ TitleBar::TitleBar(QWidget* parent) : QWidget(parent)
 	m_pMinimizeButton->setText(QChar(0xe650));
 	m_pMaximizeButton->setText(QChar(0xe53b));
 	m_pCloseButton->setText(QChar(0xe652));
+
+	connect(m_pMinimizeButton, &QPushButton::clicked, this, [&]() {
+		emit sendTitleBarButtonEvent(TitleBarButtonEvent::WindowMinimize);
+	});
+	connect(m_pMaximizeButton, &QPushButton::clicked, this, [&]() {
+		emit sendTitleBarButtonEvent(TitleBarButtonEvent::WindowMaximize);
+	});
+	connect(m_pCloseButton, &QPushButton::clicked, this, [&]() {
+		emit sendTitleBarButtonEvent(TitleBarButtonEvent::WindowClosed);
+	});
 
 	QHBoxLayout* pLayout = new QHBoxLayout(this);
 	pLayout->setSpacing(0);
@@ -73,9 +83,4 @@ void TitleBar::paintEvent(QPaintEvent* event)
 	styleOpt.init(this);
 	QPainter painter(this);
 	style()->drawPrimitive(QStyle::PE_Widget, &styleOpt, &painter, this);
-}
-
-void TitleBar::onClicked()
-{
-
 }

@@ -59,6 +59,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|Win32'">
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Link>
+      <AdditionalOptions>/NODEFAULTLIB:msvcrtd.lib %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" Label="Configuration">
     <ClCompile>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
@@ -90,7 +95,9 @@
     <ClCompile Include="ForgetPasswordPanel.cpp" />
     <ClCompile Include="FramelessWindow.cpp" />
     <ClCompile Include="Global.cpp" />
+    <ClCompile Include="HTitleWidget.cpp" />
     <ClCompile Include="HttpManager.cpp" />
+    <ClCompile Include="HWidget.cpp" />
     <ClCompile Include="LRFDialog.cpp" />
     <ClCompile Include="LoginPanel.cpp" />
     <ClCompile Include="MyDialog.cpp" />
@@ -110,6 +117,8 @@
     <QtMoc Include="ForgetPasswordPanel.h" />
     <ClInclude Include="Global.h" />
     <QtMoc Include="HttpManager.h" />
+    <QtMoc Include="HTitleWidget.h" />
+    <QtMoc Include="HWidget.h" />
     <ClInclude Include="MyLineEdit.h" />
     <ClInclude Include="ResourceManager.h" />
     <QtMoc Include="LoginPanel.h" />

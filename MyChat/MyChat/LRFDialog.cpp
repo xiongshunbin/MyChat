@@ -100,7 +100,7 @@ QWidget* LRFDialog::initTopBar()
 	closeBtn->setText(QChar(0xe652));
 	connect(closeBtn, &QPushButton::clicked, this, [=]() {
 		this->close();
-		});
+	});
 
 	// 最小化按钮
 	QPushButton* minBtn = new QPushButton(topBar);
@@ -111,7 +111,7 @@ QWidget* LRFDialog::initTopBar()
 	minBtn->setText(QChar(0xe650));
 	connect(minBtn, &QPushButton::clicked, this, [=]() {
 		this->showMinimized();
-		});
+	});
 
 	topLayout->addStretch();
 	topLayout->addWidget(minBtn);

@@ -94,6 +94,12 @@
     <ClCompile Include="HttpManager.cpp">
       <Filter>Source Files\FramelessWindow</Filter>
     </ClCompile>
+    <ClCompile Include="HTitleWidget.cpp">
+      <Filter>Source Files\FramelessWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="HWidget.cpp">
+      <Filter>Source Files\FramelessWindow</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -152,6 +158,12 @@
     </QtMoc>
     <QtMoc Include="HttpManager.h">
       <Filter>Header Files\manager</Filter>
+    </QtMoc>
+    <QtMoc Include="htitlewidget.h">
+      <Filter>Header Files\FramelessWindow</Filter>
+    </QtMoc>
+    <QtMoc Include="hwidget.h">
+      <Filter>Header Files\FramelessWindow</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>

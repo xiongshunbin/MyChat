@@ -8,12 +8,21 @@
 #include <QPainter>
 #include <QStyleOption>
 
-class TitleBar : public QWidget
+#include "HTitleWidget.h"
+
+enum class TitleBarButtonEvent : uint8_t
+{
+	WindowMaximize,
+	WindowMinimize,
+	WindowClosed
+};
+
+class TitleBar : public HTitleWidget
 {
 	Q_OBJECT
 
 public:
-	explicit TitleBar(QWidget* parent);
+	explicit TitleBar(QWidget* parent = nullptr);
 	~TitleBar();
 
 	// 设置按钮是否可见
@@ -25,8 +34,8 @@ public:
 protected:
 	void paintEvent(QPaintEvent* event) override;
 
-private slots:
-	void onClicked();
+signals:
+	void sendTitleBarButtonEvent(TitleBarButtonEvent event);
 
 private:
 	QLabel* m_pIconLabel = nullptr;

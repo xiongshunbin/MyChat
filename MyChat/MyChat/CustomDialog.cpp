@@ -41,7 +41,7 @@ void CustomDialog::showDialog()
 	currentAnimation = showAnimation;
 	show();
 	startShowAnimation();
-	m_Loop.exec();		// 采用时间循环来实现模态对话框
+	m_Loop.exec();		// 閲囩敤鏃堕棿寰幆鏉ュ疄鐜版ā鎬佸璇濇
 }
 
 void CustomDialog::closeDialog()
@@ -151,6 +151,6 @@ void CustomDialog::paintEvent(QPaintEvent* event)
 	brush.setColor(Qt::black);
 	painter.setBrush(brush);
 	painter.setPen(Qt::NoPen);
-	painter.setOpacity(m_opacity);        //值越高越不透明
+	painter.setOpacity(m_opacity);        //鍊艰秺楂樿秺涓嶉�忔槑
 	painter.drawRect(rect());
 }
