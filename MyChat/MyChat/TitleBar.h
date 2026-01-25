@@ -12,6 +12,7 @@
 
 enum class TitleBarButtonEvent : uint8_t
 {
+	WindowNormalSize,
 	WindowMaximize,
 	WindowMinimize,
 	WindowClosed
@@ -28,14 +29,22 @@ public:
 	// 设置按钮是否可见
 	void setButtonVisible(QPushButton* button, bool visible);
 
+	// 设置边距
+	void setMargins(int left, int top, int right, int bottom);
+
 	// 设置标题栏的高度
 	void setTitleHeight(int height);
 
 protected:
 	void paintEvent(QPaintEvent* event) override;
 
+	void mouseDoubleClickEvent(QMouseEvent* event) override;
+
 signals:
 	void sendTitleBarButtonEvent(TitleBarButtonEvent event);
+
+private:
+	void procMaxBtnEvent();
 
 private:
 	QLabel* m_pIconLabel = nullptr;
@@ -45,6 +54,7 @@ private:
 	QPushButton* m_pCloseButton = nullptr;
 
 	int m_titleBarHeight = 35;
+	bool s_maxButtonClicked = false;
 };
 
 

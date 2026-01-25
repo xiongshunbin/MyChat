@@ -1,6 +1,6 @@
 #include "Global.h"
 
-std::function<void(QWidget*)> replolish = [](QWidget* widget) {
+std::function<void(QWidget*)> repolish = [](QWidget* widget) {
 	widget->style()->unpolish(widget);
 	widget->style()->polish(widget);
 };

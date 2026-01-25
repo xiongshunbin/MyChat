@@ -1,6 +1,7 @@
 #ifndef _TESTFRAMELESSWINDOW_H_
 #define _TESTFRAMELESSWINDOW_H_
 
+#include <QWindowStateChangeEvent>
 #include "HWidget.h"
 #include "TitleBar.h"
 
@@ -14,6 +15,9 @@ public:
 
 private slots:
 	void procTitleBarBtnEvent(TitleBarButtonEvent event);
+
+private:
+	TitleBar* m_titleBar;
 
 };
 
