@@ -20,20 +20,20 @@ TestFramelessWindow::~TestFramelessWindow()
 {
 }
 
-void TestFramelessWindow::procTitleBarBtnEvent(TitleBarButtonEvent event)
+void TestFramelessWindow::procTitleBarBtnEvent(TitleBarEvent event)
 {
 	switch (event)
 	{
-	case TitleBarButtonEvent::WindowNormalSize:
+	case TitleBarEvent::WindowNormalSize:
 		this->setWindowState(Qt::WindowNoState);
 		break;
-	case TitleBarButtonEvent::WindowMaximize:
+	case TitleBarEvent::WindowMaximize:
 		this->setWindowState(Qt::WindowMaximized);
 		break;
-	case TitleBarButtonEvent::WindowMinimize:
+	case TitleBarEvent::WindowMinimize:
 		this->setWindowState(Qt::WindowMinimized);
 		break;
-	case TitleBarButtonEvent::WindowClosed:
+	case TitleBarEvent::WindowClosed:
 		this->close();
 		break;
 	default:

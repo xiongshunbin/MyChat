@@ -1,7 +1,8 @@
 #include "TitleBar.h"
 #include "ResourceManager.h"
 #include <QEvent>
-#include <windows.h>  
+#include <QMouseEvent>
+#include <windows.h>
 #include <windowsx.h>
 
 TitleBar::TitleBar(QWidget* parent) : HTitleWidget(parent)
@@ -42,23 +43,23 @@ TitleBar::TitleBar(QWidget* parent) : HTitleWidget(parent)
 	m_pCloseButton->setText(QChar(0xe652));
 
 	connect(m_pMinimizeButton, &QPushButton::clicked, this, [&]() {
-		emit sendTitleBarButtonEvent(TitleBarButtonEvent::WindowMinimize);
+		emit sendTitleBarButtonEvent(TitleBarEvent::WindowMinimize);
 	});
 	connect(m_pMaximizeButton, &QPushButton::clicked, this, [&]() {
 		windowIsMaximize = !windowIsMaximize;
-		TitleBarButtonEvent event;
+		TitleBarEvent event;
 		if (windowIsMaximize)
 		{
-			event = TitleBarButtonEvent::WindowMaximize;
+			event = TitleBarEvent::WindowMaximize;
 		}
 		else
 		{
-			event = TitleBarButtonEvent::WindowNormalSize;
+			event = TitleBarEvent::WindowNormalSize;
 		}
 		emit sendTitleBarButtonEvent(event);
 	});
 	connect(m_pCloseButton, &QPushButton::clicked, this, [&]() {
-		emit sendTitleBarButtonEvent(TitleBarButtonEvent::WindowClosed);
+		emit sendTitleBarButtonEvent(TitleBarEvent::WindowClosed);
 	});
 
 	QHBoxLayout* pLayout = new QHBoxLayout(this);
@@ -131,22 +132,20 @@ bool TitleBar::eventFilter(QObject* watched, QEvent* event)
 	return QWidget::eventFilter(watched, event);
 }
 
-bool TitleBar::nativeEvent(const QByteArray& eventType, void* message, long* result)
+void TitleBar::mouseDoubleClickEvent(QMouseEvent* event)
 {
-	Q_UNUSED(eventType);
-	MSG* msg = static_cast<MSG*>(message);
-	if (msg->message == WM_NCLBUTTONDBLCLK)
+	if (event->button() == Qt::LeftButton)
 	{
-		TitleBarButtonEvent event;
+		//双击最大化/还原
+		TitleBarEvent event;
 		if (windowIsMaximize)
 		{
-			event = TitleBarButtonEvent::WindowNormalSize;
+			event = TitleBarEvent::WindowNormalSize;
 		}
 		else
 		{
-			event = TitleBarButtonEvent::WindowMaximize;
+			event = TitleBarEvent::WindowMaximize;
 		}
-		return true;
+		emit sendTitleBarButtonEvent(event);
 	}
-	return false;
 }

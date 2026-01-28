@@ -10,7 +10,7 @@
 
 #include "HTitleWidget.h"
 
-enum class TitleBarButtonEvent : uint8_t
+enum class TitleBarEvent : uint8_t
 {
 	WindowNormalSize,
 	WindowMaximize,
@@ -39,10 +39,10 @@ protected:
 	void paintEvent(QPaintEvent* event) override;
 
 	bool eventFilter(QObject* watched, QEvent* event) override;
-	bool nativeEvent(const QByteArray& eventType, void* message, long* result);
+	void mouseDoubleClickEvent(QMouseEvent* event) override;
 
 signals:
-	void sendTitleBarButtonEvent(TitleBarButtonEvent event);
+	void sendTitleBarButtonEvent(TitleBarEvent event);
 
 private:
 	QLabel* m_pIconLabel = nullptr;

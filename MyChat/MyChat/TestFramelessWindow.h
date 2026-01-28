@@ -14,7 +14,7 @@ public:
 	~TestFramelessWindow();
 
 private slots:
-	void procTitleBarBtnEvent(TitleBarButtonEvent event);
+	void procTitleBarBtnEvent(TitleBarEvent event);
 
 private:
 	TitleBar* m_titleBar;
