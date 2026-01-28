@@ -1,8 +1,16 @@
 #include "TitleBar.h"
 #include "ResourceManager.h"
+#include <QEvent>
+#include <windows.h>  
+#include <windowsx.h>
 
 TitleBar::TitleBar(QWidget* parent) : HTitleWidget(parent)
 {
+	if (parent != nullptr)
+	{
+		parent->installEventFilter(this);
+	}
+
 	this->setObjectName("TitleBar");
 	this->setFixedHeight(m_titleBarHeight);
 
@@ -37,7 +45,17 @@ TitleBar::TitleBar(QWidget* parent) : HTitleWidget(parent)
 		emit sendTitleBarButtonEvent(TitleBarButtonEvent::WindowMinimize);
 	});
 	connect(m_pMaximizeButton, &QPushButton::clicked, this, [&]() {
-		procMaxBtnEvent();
+		windowIsMaximize = !windowIsMaximize;
+		TitleBarButtonEvent event;
+		if (windowIsMaximize)
+		{
+			event = TitleBarButtonEvent::WindowMaximize;
+		}
+		else
+		{
+			event = TitleBarButtonEvent::WindowNormalSize;
+		}
+		emit sendTitleBarButtonEvent(event);
 	});
 	connect(m_pCloseButton, &QPushButton::clicked, this, [&]() {
 		emit sendTitleBarButtonEvent(TitleBarButtonEvent::WindowClosed);
@@ -91,26 +109,44 @@ void TitleBar::paintEvent(QPaintEvent* event)
 	style()->drawPrimitive(QStyle::PE_Widget, &styleOpt, &painter, this);
 }
 
-void TitleBar::mouseDoubleClickEvent(QMouseEvent* event)
+bool TitleBar::eventFilter(QObject* watched, QEvent* event)
 {
-	HTitleWidget::mouseDoubleClickEvent(event);
-	procMaxBtnEvent();
+	if (watched == parentWidget() && event->type() == QEvent::WindowStateChange)
+	{
+		if (parentWidget()->isMaximized())
+		{
+			windowIsMaximize = true;
+			m_pMaximizeButton->setText(QChar(0xe53d));
+			this->setTitleHeight(44);
+			this->setMargins(10, 9, 9, 0);
+		}
+		else if (parentWidget()->windowState() == Qt::WindowNoState)
+		{
+			windowIsMaximize = false;
+			m_pMaximizeButton->setText(QChar(0xe53b));
+			this->setTitleHeight(35);
+			this->setMargins(0, 0, 0, 0);
+		}
+	}
+	return QWidget::eventFilter(watched, event);
 }
 
-void TitleBar::procMaxBtnEvent()
+bool TitleBar::nativeEvent(const QByteArray& eventType, void* message, long* result)
 {
-	s_maxButtonClicked = !s_maxButtonClicked;
-	if (s_maxButtonClicked)
+	Q_UNUSED(eventType);
+	MSG* msg = static_cast<MSG*>(message);
+	if (msg->message == WM_NCLBUTTONDBLCLK)
 	{
-		this->setTitleHeight(45);
-		this->setMargins(10, 10, 10, 0);
-		emit sendTitleBarButtonEvent(TitleBarButtonEvent::WindowMaximize);
+		TitleBarButtonEvent event;
+		if (windowIsMaximize)
+		{
+			event = TitleBarButtonEvent::WindowNormalSize;
+		}
+		else
+		{
+			event = TitleBarButtonEvent::WindowMaximize;
+		}
+		return true;
 	}
-	else
-	{
-		this->setTitleHeight(35);
-		this->setMargins(0, 0, 0, 0);
-		emit sendTitleBarButtonEvent(TitleBarButtonEvent::WindowNormalSize);
-		this->update();
-	}
+	return false;
 }

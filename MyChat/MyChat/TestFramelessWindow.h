@@ -21,5 +21,4 @@ private:
 
 };
 
-
 #endif // !_TESTFRAMELESSWINDOW_H_

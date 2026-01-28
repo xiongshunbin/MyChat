@@ -38,13 +38,11 @@ public:
 protected:
 	void paintEvent(QPaintEvent* event) override;
 
-	void mouseDoubleClickEvent(QMouseEvent* event) override;
+	bool eventFilter(QObject* watched, QEvent* event) override;
+	bool nativeEvent(const QByteArray& eventType, void* message, long* result);
 
 signals:
 	void sendTitleBarButtonEvent(TitleBarButtonEvent event);
-
-private:
-	void procMaxBtnEvent();
 
 private:
 	QLabel* m_pIconLabel = nullptr;
@@ -54,8 +52,7 @@ private:
 	QPushButton* m_pCloseButton = nullptr;
 
 	int m_titleBarHeight = 35;
-	bool s_maxButtonClicked = false;
+	bool windowIsMaximize = false;
 };
-
 
 #endif // !_TITLEBAR_H_
