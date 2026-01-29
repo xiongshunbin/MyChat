@@ -1,22 +1,21 @@
-#ifndef _FRAMELESSWINDOW_H_
-#define _FRAMELESSWINDOW_H_
+#ifndef _TESTFRAMELESSWINDOW_H_
+#define _TESTFRAMELESSWINDOW_H_
 
-#include <QWidget>
+#include <QWindowStateChangeEvent>
+#include "HWidget.h"
+#include "TitleBar.h"
 
-class FramelessWindow : public QWidget
+class FramelessWindow : public HWidget
 {
 	Q_OBJECT
 
 public:
 	explicit FramelessWindow(QWidget* parent = nullptr);
-
 	~FramelessWindow();
 
-protected:
-	bool nativeEvent(const QByteArray& eventType, void* message, long* result) override;
-
 private:
+	TitleBar* m_titleBar;
 
 };
 
-#endif // !_FRAMELESSWINDOW_H_
+#endif // !_TESTFRAMELESSWINDOW_H_

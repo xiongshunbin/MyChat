@@ -10,7 +10,10 @@ TitleBar::TitleBar(QWidget* parent) : HTitleWidget(parent)
 	if (parent != nullptr)
 	{
 		parent->installEventFilter(this);
+		connect(this, &TitleBar::sendTitleBarButtonEvent, this, &TitleBar::procTitleBarBtnEvent);
 	}
+	else
+		throw std::runtime_error("The parent widget can't be null!");
 
 	this->setObjectName("TitleBar");
 	this->setFixedHeight(m_titleBarHeight);
@@ -147,5 +150,30 @@ void TitleBar::mouseDoubleClickEvent(QMouseEvent* event)
 			event = TitleBarEvent::WindowMaximize;
 		}
 		emit sendTitleBarButtonEvent(event);
+	}
+}
+
+void TitleBar::procTitleBarBtnEvent(TitleBarEvent event)
+{
+	QWidget* parent = parentWidget();
+	if (parent != nullptr)
+	{
+		switch (event)
+		{
+		case TitleBarEvent::WindowNormalSize:
+			parent->setWindowState(Qt::WindowNoState);
+			break;
+		case TitleBarEvent::WindowMaximize:
+			parent->setWindowState(Qt::WindowMaximized);
+			break;
+		case TitleBarEvent::WindowMinimize:
+			parent->setWindowState(Qt::WindowMinimized);
+			break;
+		case TitleBarEvent::WindowClosed:
+			parent->close();
+			break;
+		default:
+			break;
+		}
 	}
 }

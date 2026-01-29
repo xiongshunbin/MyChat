@@ -2,7 +2,7 @@
 #include <QtWidgets/QApplication>
 #include "LRFDialog.h"
 
-#include "TestFramelessWindow.h"
+#include "FramelessWindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	//LRFDialog dialog;
 	//dialog.setStyleSheet(ResourceManager::getInstance()->getStylePool().find(ResID::Style_LRFDialog)->second);
 	//dialog.show();
-	TestFramelessWindow test;
+	FramelessWindow test;
 	test.show();
     return a.exec();
 }

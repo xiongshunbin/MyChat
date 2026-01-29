@@ -76,9 +76,6 @@
     <ClCompile Include="FramelessWindow.cpp">
       <Filter>Source Files\FramelessWindow</Filter>
     </ClCompile>
-    <ClCompile Include="TestFramelessWindow.cpp">
-      <Filter>Source Files\FramelessWindow</Filter>
-    </ClCompile>
     <ClCompile Include="TitleBar.cpp">
       <Filter>Source Files\FramelessWindow</Filter>
     </ClCompile>
@@ -143,9 +140,6 @@
     </QtMoc>
     <QtMoc Include="CustomDialog.h">
       <Filter>Header Files\CustomComponents</Filter>
-    </QtMoc>
-    <QtMoc Include="TestFramelessWindow.h">
-      <Filter>Header Files\FramelessWindow</Filter>
     </QtMoc>
     <QtMoc Include="FramelessWindow.h">
       <Filter>Header Files\FramelessWindow</Filter>

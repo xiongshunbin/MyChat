@@ -1,35 +1,21 @@
 #include "FramelessWindow.h"
+#include "Global.h"
+#include <QDebug>
+#include <QApplication>
 
-#ifdef Q_OS_WIN
-#include <Dwmapi.h>  // Use system shadow frame
-#endif
-
-FramelessWindow::FramelessWindow(QWidget* parent)
+FramelessWindow::FramelessWindow(QWidget* parent) : HWidget(parent)
 {
-	// 设置为无边框窗口
-	this->setWindowFlags(windowFlags() | Qt::FramelessWindowHint);
+	this->setMinimumSize(700, 500);
 
-	// 设置窗口阴影效果
-#ifdef Q_OS_WIN
-	BOOL bEnable = false;
-	::DwmIsCompositionEnabled(&bEnable);
-	if (bEnable)
-	{
-		DWMNCRENDERINGPOLICY ncrp = DWMNCRP_ENABLED;
-		::DwmSetWindowAttribute((HWND)winId(), DWMWA_NCRENDERING_POLICY, &ncrp, sizeof(ncrp));
-		MARGINS margins = { -1 };
-		::DwmExtendFrameIntoClientArea((HWND)winId(), &margins);
-	}
-#endif
+	m_titleBar = new TitleBar(this);
+	QVBoxLayout* pLayout = new QVBoxLayout(this);
+	pLayout->setMargin(0);
+	pLayout->setSpacing(0);
 
-
+	pLayout->addWidget(m_titleBar);
+	pLayout->addStretch(0);
 }
 
 FramelessWindow::~FramelessWindow()
 {
-}
-
-bool FramelessWindow::nativeEvent(const QByteArray& eventType, void* message, long* result)
-{
-	return QWidget::nativeEvent(eventType, message, result);
 }

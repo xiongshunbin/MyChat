@@ -72,7 +72,7 @@
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -93,7 +93,6 @@
     <QtMoc Include="Widget.h" />
     <ClCompile Include="CustomDialog.cpp" />
     <ClCompile Include="ForgetPasswordPanel.cpp" />
-    <ClCompile Include="FramelessWindow.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="HTitleWidget.cpp" />
     <ClCompile Include="HttpManager.cpp" />
@@ -103,17 +102,16 @@
     <ClCompile Include="MyDialog.cpp" />
     <ClCompile Include="MyLineEdit.cpp" />
     <ClCompile Include="RegisterPanel.cpp" />
-    <ClCompile Include="TestFramelessWindow.cpp" />
+    <ClCompile Include="FramelessWindow.cpp" />
     <ClCompile Include="TitleBar.cpp" />
     <ClCompile Include="Widget.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="TitleBar.h" />
-    <QtMoc Include="TestFramelessWindow.h" />
+    <QtMoc Include="FramelessWindow.h" />
     <QtMoc Include="MyDialog.h" />
     <QtMoc Include="CustomDialog.h" />
-    <QtMoc Include="FramelessWindow.h" />
     <QtMoc Include="ForgetPasswordPanel.h" />
     <ClInclude Include="Global.h" />
     <QtMoc Include="HttpManager.h" />

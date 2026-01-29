@@ -37,9 +37,11 @@ public:
 
 protected:
 	void paintEvent(QPaintEvent* event) override;
-
 	bool eventFilter(QObject* watched, QEvent* event) override;
 	void mouseDoubleClickEvent(QMouseEvent* event) override;
+
+private slots:
+	void procTitleBarBtnEvent(TitleBarEvent event);
 
 signals:
 	void sendTitleBarButtonEvent(TitleBarEvent event);
